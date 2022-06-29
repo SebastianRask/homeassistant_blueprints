@@ -9,9 +9,9 @@ blueprint:
       name: Niko Switch
       selector:
         device:
-          integration: deconz
+          model: FOHSWITCH
+          # integration: deconz
           # manufacturer: PhilipsFoH
-          # model: FOHSWITCH
     button_one_single_press:
       name: 1 button - Single press
       description: Action to run on a single press of the button 1
