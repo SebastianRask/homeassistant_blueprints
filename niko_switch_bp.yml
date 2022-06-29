@@ -146,51 +146,47 @@ action:
   - conditions:
     - '{{ event == 4002 }}'
     sequence: !input 'button_four_single_press'
+  - conditions:
+    - '{{ event == 5002 }}'
+    sequence: !input 'both_buttons_one_and_two_single_press'
+  - conditions:
+    - '{{ event == 6002 }}'
+    sequence: !input 'both_buttons_three_and_four_single_press'
 
   - conditions:
     - '{{ event == 1001 }}'
     sequence: !input 'button_one_hold_in'
+  - conditions:
+    - '{{ event == 2001 }}'
+    sequence: !input 'button_two_hold_in'
+  - conditions:
+    - '{{ event == 3001 }}'
+    sequence: !input 'button_three_hold_in'
+  - conditions:
+    - '{{ event == 4001 }}'
+    sequence: !input 'button_four_hold_in'
+  - conditions:
+    - '{{ event == 5001 }}'
+    sequence: !input 'both_buttons_one_and_two_hold_in'
+  - conditions:
+    - '{{ event == 6001 }}'
+    sequence: !input 'both_buttons_three_and_four_hold_in'
 
   - conditions:
     - '{{ event == 1003 }}'
     sequence: !input 'button_one_hold_release'
   - conditions:
-    - '{{ event == 2001 }}'
-    sequence: !input 'button_two_hold_in'
-
-
-  - conditions:
     - '{{ event == 2003 }}'
     sequence: !input 'button_two_hold_release'
-  - conditions:
-    - '{{ event == 3001 }}'
-    sequence: !input 'button_three_hold_in'
-
   - conditions:
     - '{{ event == 3003 }}'
     sequence: !input 'button_three_hold_release'
   - conditions:
-    - '{{ event == 4001 }}'
-    sequence: !input 'button_four_hold_in'
-
-  - conditions:
     - '{{ event == 4003 }}'
     sequence: !input 'button_four_hold_release'
   - conditions:
-    - '{{ event == 5001 }}'
-    sequence: !input 'both_buttons_one_and_two_hold_in'
-  - conditions:
-    - '{{ event == 5002 }}'
-    sequence: !input 'both_buttons_one_and_two_single_press'
-  - conditions:
     - '{{ event == 5003 }}'
     sequence: !input 'both_buttons_one_and_two_hold_release'
-  - conditions:
-    - '{{ event == 6001 }}'
-    sequence: !input 'both_buttons_three_and_four_hold_in'
-  - conditions:
-    - '{{ event == 6002 }}'
-    sequence: !input 'both_buttons_three_and_four_single_press'
   - conditions:
     - '{{ event == 6003 }}'
     sequence: !input 'both_buttons_three_and_four_hold_release'  
