@@ -13,110 +13,110 @@ blueprint:
           # integration: deconz
           # manufacturer: PhilipsFoH
     button_one_single_press:
-      name: 1 button - Single press
-      description: Action to run on a single press of the button 1
+      name: Left/Up Button - Single press
+      description: Action to run on a single press and release of the button 1
       default: []
       selector:
         action: {}
     button_one_hold_in:
-      name: 1 button - Hold in
-      description: Action to run when button 1 held in
+      name: Left/Up Button - Long Press
+      description: Action to run when button 1 long pressed without releasing
       default: []
       selector:
         action: {}
     button_one_hold_release:
-      name: 1 button - Hold release
-      description:  Action to run when button 1 was held in and released
+      name: Left/Up Button - Long Press And Release
+      description:  Action to run when button 1 was long pressed and released
       default: []
       selector:
         action: {}
     button_two_single_press:
-      name: 2 button - Single press
-      description: Action to run on a single press of the button 2
+      name: Left/Down Button - Single press
+      description: Action to run on a single press and release of the button 2
       default: []
       selector:
         action: {}
     button_two_hold_in:
-      name: 2 button - hold in
-      description: Action to run when button 2 held in
+      name: Left/Down Button - Long Press
+      description: Action to run when button 2 long pressed without releasing
       default: []
       selector:
         action: {}
     button_two_hold_release:
-      name: 2 button - Hold release
-      description:  Action to run when button 2 was held in and released
+      name: Left/Down Button - Long Press And Release
+      description:  Action to run when button 2 was long pressed and released
       default: []
       selector:
         action: {}
     button_three_single_press:
-      name: 3 button - Single press
-      description: Action to run on a single press of the button 3
+      name: Right/Up Button - Single press
+      description: Action to run on a single press and release of the button 3
       default: []
       selector:
         action: {}
     button_three_hold_in:
-      name: 3 button - hold in
-      description: Action to run when button 3 held in
+      name: Right/Up Button - Long Press
+      description: Action to run when button 3 long pressed without releasing
       default: []
       selector:
         action: {}
     button_three_hold_release:
-      name: 3 button - Hold release
-      description:  Action to run when button 3 was held in and released
+      name: Right/Up Button - Long Press And Release
+      description:  Action to run when button 3 was long pressed and released
       default: []
       selector:
         action: {}
     button_four_single_press:
-      name: 4 button - Single press
-      description: Action to run on a single press of the button 4
+      name: Right/Down Button - Single press
+      description: Action to run on a single press and release of the button 4
       default: []
       selector:
         action: {}
     button_four_hold_in:
-      name: 4 button - hold in
-      description: Action to run when button 4 held in
+      name: Right/Down Button - Long Press
+      description: Action to run when button 4 long pressed without releasing
       default: []
       selector:
         action: {}
     button_four_hold_release:
-      name: 4 button - Hold release
-      description: Action to run when button 4 was held in and released
+      name: Right/Down Button - Long Press And Release
+      description: Action to run when button 4 was long pressed and released
       default: []
       selector:
         action: {}
     both_buttons_one_and_two_single_press:
-      name: Both buttons 1 + 2 - Single press
-      description: Action to run on a single press of both buttons 1 + 2
+      name: Both Left buttons - Single press
+      description: Action to run on a single press and release of both buttons 1 + 2
       default: []
       selector:
         action: {}
     both_buttons_one_and_two_hold_in:
-      name: Both buttons 1 + 2 - hold in
-      description: Action to run when both buttons 1 + 2 held in
+      name: Both Left buttons - Long Press
+      description: Action to run when both buttons 1 + 2 long pressed
       default: []
       selector:
         action: {}
     both_buttons_one_and_two_hold_release:
-      name: Both buttons 1 + 2 - Hold release
-      description: Action to run when both buttons 1 + 2 were held in and released
+      name: Both Left buttons - Long Press And Release
+      description: Action to run when both buttons 1 + 2 were long pressed and released
       default: []
       selector:
         action: {}
     both_buttons_three_and_four_single_press:
-      name: Both buttons 3 + 4 - Single press
-      description: Action to run on a single press of both buttons 3 + 4
+      name: Both Right buttons - Single press
+      description: Action to run on a single press and release of both buttons 3 + 4
       default: []
       selector:
         action: {}
     both_buttons_three_and_four_hold_in:
-      name: Both buttons 3 + 4 - hold in
-      description: Action to run when both buttons 3 + 4 held in
+      name: Both Right buttons - Long Press
+      description: Action to run when both buttons 3 + 4 long pressed
       default: []
       selector:
         action: {}
     both_buttons_three_and_four_hold_release:
-      name: Both buttons 3 + 4 - Hold release
-      description: Action to run when both buttons 3 + 4 were held in and released
+      name: Both Right buttons - Long Press And Release
+      description: Action to run when both buttons 3 + 4 were long pressed and released
       default: []
       selector:
         action: {}
