@@ -6,7 +6,7 @@ blueprint:
     Select the Tradfri remote and your blinds.
     You can open or close the blinds all the way with a single click, hold the button down to adjust them, or hit the opposing button while in motion to stop them."
   domain: automation
-  source_url: https://github.com/SebastianRask/homeassistant_blueprints/blob/main/ikea_cover_switch_dp.yml
+  source_url: https://github.com/SebastianRask/homeassistant_blueprints/blob/main/ikea_cover_switch_bp.yml
   input:
     remote:
       name: Remote
