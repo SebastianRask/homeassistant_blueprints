@@ -165,7 +165,6 @@ action:
   - conditions:
     - '{{ event == 1001 }}'
     sequence: 
-    - !input 'button_one_hold_in'
     - service: light.turn_on
       target: !input 'target'
       data:
