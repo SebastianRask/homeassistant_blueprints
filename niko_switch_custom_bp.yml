@@ -1,0 +1,202 @@
+blueprint:
+  name: deCONZ - Niko Batteryless 4 button fuga wall switch
+  description: >
+    Philips Friends of Hue Smart Switch (4 buttons)
+  domain: automation
+  source_url: https://github.com/SebastianRask/homeassistant_blueprints/blob/main/niko_switch_custom_bp.yml
+  input:
+    remote:
+      name: Niko Switch
+      selector:
+        device:
+          model: FOHSWITCH
+          # integration: deconz
+          # manufacturer: PhilipsFoH
+    target:
+      name: Target
+      description: The target that will be controlled
+      selector:
+        target:
+
+    button_one_single_press:
+      name: Left/Up Button - Single press
+      description: Action to run on a single press and release of the button 1
+      default: []
+      selector:
+        action: {}
+    button_one_hold_in:
+      name: Left/Up Button - Long Press
+      description: Action to run when button 1 long pressed without releasing
+      default: []
+      selector:
+        action: {}
+    button_one_hold_release:
+      name: Left/Up Button - Long Press And Release
+      description:  Action to run when button 1 was long pressed and released
+      default: []
+      selector:
+        action: {}
+    button_two_single_press:
+      name: Left/Down Button - Single press
+      description: Action to run on a single press and release of the button 2
+      default: []
+      selector:
+        action: {}
+    button_two_hold_in:
+      name: Left/Down Button - Long Press
+      description: Action to run when button 2 long pressed without releasing
+      default: []
+      selector:
+        action: {}
+    button_two_hold_release:
+      name: Left/Down Button - Long Press And Release
+      description:  Action to run when button 2 was long pressed and released
+      default: []
+      selector:
+        action: {}
+    button_three_single_press:
+      name: Right/Up Button - Single press
+      description: Action to run on a single press and release of the button 3
+      default: []
+      selector:
+        action: {}
+    button_three_hold_in:
+      name: Right/Up Button - Long Press
+      description: Action to run when button 3 long pressed without releasing
+      default: []
+      selector:
+        action: {}
+    button_three_hold_release:
+      name: Right/Up Button - Long Press And Release
+      description:  Action to run when button 3 was long pressed and released
+      default: []
+      selector:
+        action: {}
+    button_four_single_press:
+      name: Right/Down Button - Single press
+      description: Action to run on a single press and release of the button 4
+      default: []
+      selector:
+        action: {}
+    button_four_hold_in:
+      name: Right/Down Button - Long Press
+      description: Action to run when button 4 long pressed without releasing
+      default: []
+      selector:
+        action: {}
+    button_four_hold_release:
+      name: Right/Down Button - Long Press And Release
+      description: Action to run when button 4 was long pressed and released
+      default: []
+      selector:
+        action: {}
+    both_buttons_one_and_two_single_press:
+      name: Both Left buttons - Single press
+      description: Action to run on a single press and release of both buttons 1 + 2
+      default: []
+      selector:
+        action: {}
+    both_buttons_one_and_two_hold_in:
+      name: Both Left buttons - Long Press
+      description: Action to run when both buttons 1 + 2 long pressed
+      default: []
+      selector:
+        action: {}
+    both_buttons_one_and_two_hold_release:
+      name: Both Left buttons - Long Press And Release
+      description: Action to run when both buttons 1 + 2 were long pressed and released
+      default: []
+      selector:
+        action: {}
+    both_buttons_three_and_four_single_press:
+      name: Both Right buttons - Single press
+      description: Action to run on a single press and release of both buttons 3 + 4
+      default: []
+      selector:
+        action: {}
+    both_buttons_three_and_four_hold_in:
+      name: Both Right buttons - Long Press
+      description: Action to run when both buttons 3 + 4 long pressed
+      default: []
+      selector:
+        action: {}
+    both_buttons_three_and_four_hold_release:
+      name: Both Right buttons - Long Press And Release
+      description: Action to run when both buttons 3 + 4 were long pressed and released
+      default: []
+      selector:
+        action: {}
+        
+mode: restart
+max_exceeded: silent
+
+trigger:
+- platform: event
+  event_type: deconz_event
+  event_data:
+    device_id: !input 'remote'
+
+action:
+- variables:
+    event: '{{ trigger.event.data.event }}'
+- choose:
+  - conditions:
+    - '{{ event == 1002 }}'
+    sequence: 
+    - service: light.turn_on
+      target: !input 'target'
+  - conditions:
+    - '{{ event == 2002 }}'
+    sequence: 
+    - service: light.turn_off
+      target: !input 'target'
+  - conditions:
+    - '{{ event == 3002 }}'
+    sequence: !input 'button_three_single_press'
+  - conditions:
+    - '{{ event == 4002 }}'
+    sequence: !input 'button_four_single_press'
+  - conditions:
+    - '{{ event == 5002 }}'
+    sequence: !input 'both_buttons_one_and_two_single_press'
+  - conditions:
+    - '{{ event == 6002 }}'
+    sequence: !input 'both_buttons_three_and_four_single_press'
+
+  - conditions:
+    - '{{ event == 1001 }}'
+    sequence: !input 'button_one_hold_in'
+  - conditions:
+    - '{{ event == 2001 }}'
+    sequence: !input 'button_two_hold_in'
+  - conditions:
+    - '{{ event == 3001 }}'
+    sequence: !input 'button_three_hold_in'
+  - conditions:
+    - '{{ event == 4001 }}'
+    sequence: !input 'button_four_hold_in'
+  - conditions:
+    - '{{ event == 5001 }}'
+    sequence: !input 'both_buttons_one_and_two_hold_in'
+  - conditions:
+    - '{{ event == 6001 }}'
+    sequence: !input 'both_buttons_three_and_four_hold_in'
+
+  - conditions:
+    - '{{ event == 1003 }}'
+    sequence: !input 'button_one_hold_release'
+  - conditions:
+    - '{{ event == 2003 }}'
+    sequence: !input 'button_two_hold_release'
+  - conditions:
+    - '{{ event == 3003 }}'
+    sequence: !input 'button_three_hold_release'
+  - conditions:
+    - '{{ event == 4003 }}'
+    sequence: !input 'button_four_hold_release'
+  - conditions:
+    - '{{ event == 5003 }}'
+    sequence: !input 'both_buttons_one_and_two_hold_release'
+  - conditions:
+    - '{{ event == 6003 }}'
+    sequence: !input 'both_buttons_three_and_four_hold_release'  
