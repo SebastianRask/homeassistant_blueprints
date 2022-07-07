@@ -10,8 +10,7 @@ blueprint:
       selector:
         device:
           model: FOHSWITCH
-          # integration: deconz
-          # manufacturer: PhilipsFoH
+
     target:
       name: Target
       description: The target that will be controlled
@@ -165,7 +164,12 @@ action:
 
   - conditions:
     - '{{ event == 1001 }}'
-    sequence: !input 'button_one_hold_in'
+    sequence: 
+    - !input 'button_one_hold_in'
+    - service: light.turn_on
+      target: !input 'target'
+      data:
+        brightness_pct: 100
   - conditions:
     - '{{ event == 2001 }}'
     sequence: !input 'button_two_hold_in'
