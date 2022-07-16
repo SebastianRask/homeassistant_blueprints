@@ -1,12 +1,11 @@
 blueprint:
-    name: deCONZ - IKEA Tradfri open/close switch
-    description: '"Control Furtur roller blind with IKEA Tradfri open/close switch
+    name: deCONZ - IKEA Tradfri open/close switch - Custom Long Press
+    description: '"Control blinds with IKEA Tradfri open/close switch
   
   
       Select the Tradfri remote and your blinds.
   
-      You can open or close the blinds all the way with a single click, hold the button
-      down to adjust them, or hit the opposing button while in motion to stop them."
+      You can open or close the blinds all the way with a single click. Program custom long press buttons"
   
       '
     domain: automation
