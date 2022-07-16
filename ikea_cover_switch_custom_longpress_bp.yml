@@ -1,0 +1,72 @@
+blueprint:
+    name: deCONZ - IKEA Tradfri open/close switch
+    description: '"Control Furtur roller blind with IKEA Tradfri open/close switch
+  
+  
+      Select the Tradfri remote and your blinds.
+  
+      You can open or close the blinds all the way with a single click, hold the button
+      down to adjust them, or hit the opposing button while in motion to stop them."
+  
+      '
+    domain: automation
+    source_url: https://github.com/SebastianRask/homeassistant_blueprints/blob/main/ikea_cover_switch_custom_longpress_bp.yml
+    input:
+      remote:
+        name: Remote
+        description: The remote that will control the shades
+        selector:
+          device:
+            integration: deconz
+            manufacturer: IKEA of Sweden
+            model: TRADFRI open/close remote
+            multiple: false
+      cover:
+        name: Cover
+        description: The cover that will be controlled
+        selector:
+          target:
+            entity:
+              domain: cover
+      button_up_long_press:
+        name: Up Button - Long Press
+        description: Action to run when down button long pressed and released
+        default: []
+        selector:
+          action: {}
+      button_down_long_press:
+        name: Down Button - Long Press 
+        description: Action to run when down button long pressed and released
+        default: []
+        selector:
+          action: {}
+  mode: restart
+  trigger:
+  - platform: event
+    event_type: deconz_event
+    event_data:
+      device_id: !input 'remote'
+  action:
+  - variables:
+      event: '{{ trigger.event.data.event }}'
+  - choose:
+    - conditions:
+      - '{{ event == 1002 }}'
+      sequence:
+      - service: cover.open_cover
+        target: !input 'cover'
+        
+    - conditions:
+      - '{{ event == 2002 }}'
+      sequence:
+      - service: cover.close_cover
+        target: !input 'cover'
+
+    - conditions:
+      - '{{ event == 1003 }}'
+      sequence: !input 'button_up_long_press'
+
+    - conditions:
+      - '{{ event == 2003 }}'
+      sequence: !input 'button_down_long_press'
+
